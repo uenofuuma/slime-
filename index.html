@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,22 +29,22 @@
     <!-- ↓↓最初隠したいコンテンツ↓↓ -->
     <div class="content">
       <p>
-   <b>
-   <suraman><a href="https://ck82.github.io/besPAS/">slime掲示版 bes</a><br>
-     <a href="https://uenofuuma.github.io/Styan/">Sちゃんねる</a><br></suraman>
-   <a href="https://uenofuuma.github.io/slime-ukuraina/">ウクライナ情勢について語り合うスレッド</a><p>
-   <a href="https://uenofuuma.github.io/slime-gurume/">グルメについて語り合うスレッド</a></P>
-   <a href="https://uenofuuma.github.io/slime-guti/">愚痴を語り合うスレッド</a><p>
-   <a href="https://uenofuuma.github.io/slime-quiz/">クイズを出し合うスレッド</a></p>
-   <a href="https://uenofuuma.github.io/slime-oogiri/">大喜利を楽しむスレッド</a><p>
-   <a href="https://uenofuuma.github.io/slime-osirase/">slime教のお知らせを発信するスレッド</a></p>
-   <a href="https://uenofuuma.github.io/slime-jouhoukoukan/">みんなで情報交換をするスレッド</a><p>
-   <a href="https://uenofuuma.github.io/slime-password/">プログラミングの情報交換をするスレッド</a></p>
-   <a href="https://uenofuuma.github.io/slime-syakai/">社会情勢を語り合うスレッド</a><p>
-   <a href="https://uenofuuma.github.io/slime-rimo-to/">リモート会議用のスレッド</a></p>
-   <a href="https://uenofuuma.github.io/slime-saito/">便利サイト紹介用のスレッド</a><p>
-   <a href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiTmpiV3JOb1kyMjZYS0tUS3A1U1AxYlZXZzlJRkpCVjVHRDV0TVNQZml6dWVHckdqdnZqd0k3N2lXL3RDSHc5alBYRHgzTlE3eUE9PSIsImgiOiJzbGltZeaOsuekuueJiOOBruOCueODrOODg+ODieOBp+OBmeOAgiIsImkiOiJEQ2hrU0VUWjZaSWZoTnc2In0=">たこスレッド</a><br>
-</b></p>
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="スレッド検索">
+<ul id="myUL">
+  <li><a href="https://ck82.github.io/besPAS/">slime掲示版 bes</a></li>
+  <li><a href="https://uenofuuma.github.io/Styan/">Sちゃんねる</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-ukuraina/">ウクライナ情勢について語り合うスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-gurume/">グルメについて語り合うスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-guti/">愚痴を語り合うスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-quiz/">クイズを出し合うスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-oogiri/">大喜利を楽しむスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-jouhoukoukan/">みんなで情報交換をするスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-password/">プログラミングの情報交換をするスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-syakai/">社会情勢を語り合うスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-rimo-to/">リモート会議用のスレッド</a></li>
+  <li><a href="https://uenofuuma.github.io/slime-saito/">便利サイト紹介用のスレッド</a></li>
+  <li><a href="https://jstrieb.github.io/link-lock/#eyJ2IjoiMC4wLjEiLCJlIjoiTmpiV3JOb1kyMjZYS0tUS3A1U1AxYlZXZzlJRkpCVjVHRDV0TVNQZml6dWVHckdqdnZqd0k3N2lXL3RDSHc5alBYRHgzTlE3eUE9PSIsImgiOiJzbGltZeaOsuekuueJiOOBruOCueODrOODg+ODieOBp+OBmeOAgiIsImkiOiJEQ2hrU0VUWjZaSWZoTnc2In0=">たこスレッド</a></li>
+</ul>
     </div>
     <!-- ↑↑最初隠したいコンテンツ ↑↑-->
   </div>
@@ -111,6 +110,25 @@ hcb_user = {
     ON_COMMENT: function(){}, /* Function to call after commenting. */
     RELATIVE_DATES:true /* show dates in the form "X hours ago." etc. */
 };
+  function myFunction() {
+  // Declare variables
+  var input, filter, ul, li, a, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("myUL");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    txtValue = a.textContent || a.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
 </script>
 <!-- done customizing labels of htmlcommentbox.com -->
 <style>
@@ -147,6 +165,40 @@ background:yellow;}
   background: #ffff00;
 }
   suraman{font-size:35px;}
+  #myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+#myUL {
+  /* Remove default list styling */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+ul#myUL li {
+    padding: 0;
+}
+#myUL li a {
+  border: 1px solid #ddd; /* Add a border to all links */
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6; /* Grey background color */
+  padding: 12px; /* Add some padding */
+  text-decoration: none; /* Remove default text underline */
+  font-size: 18px; /* Increase the font-size */
+  color: black; /* Add a black text color */
+  display: block; /* Make it into a block element to fill the whole list */
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #c8e4ff; /* Add a hover effect to all links, except for headers */
+}
 </style>
 </body>
 </html>
